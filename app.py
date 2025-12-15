@@ -24,7 +24,15 @@ st.plotly_chart(fig_scatter)
 
 
 
-# Criar histograma da distribuição de preços
+# Criar histograma da distribuição de preços # Adicionar botão para controlar o histograma
+if st.button('Mostrar Histograma de Preços'):
+    # Criar histograma da distribuição de preços
+    fig_price_hist = px.histogram(car_data,
+                                  x='price',
+                                  title='Distribuição de Preços dos Carros',
+                                  labels={'price': 'Preço (USD)', 'count': 'Quantidade de Carros'},
+                                  nbins=50)
+    st.plotly_chart(fig_price_hist)
 fig_price_dist = px.histogram(car_data, 
                              x='price', 
                              title='Distribuição de Preços dos Carros',
